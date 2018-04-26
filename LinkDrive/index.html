@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Google Drive Hotlink Generator</title>
+	<title>LinkDrive™ A Google Drive Direct Link Generator</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -8,27 +8,37 @@
 </head>
 <body>
 	<div class="container">
-		<form action="javascript:void(0);" onsubmit="getID()">
+<br><br>
+  <div class="text-center">
+<h1 class="display-4"><span style="color:#0F9D58">Link</span><span style="color:#4285F4">Drive</span><span style="color:#FFCD40">™</span></h2></div>
+<h6 class="alert-light text-center"><small>A <strong>Direct Link</strong> Generator<br>for your shared Google Drive™ Files</small></h6>
+		<form action="javascript:void(0);" onsubmit="getID()" onreset="$('#invalidLink').fadeOut(500)">
 			<div class="form-group">
 			<hr>
-			<label for="link">Enter your Google Drive share link here</label>
+			<label for="link">Enter your file's share link here</label>
 			<input class="form-control input-sm js-url-field" type="text" id="link" onclick="select()" onchange="getID()"/>
-			<br>
-			<div id="invalidLink" class="alert alert-warning" style="display:none">
-				<strong>Invalid link!</strong> Please enter a valid link containing id
+<br>
+<div class="alert alert-light alert-dismissible fade show">
+    <button type="button" class="close" data-dismiss="alert">&times;</button><small>
+Make sure your files are shared with the option<br><strong>Public: Anyone with the link can view</strong></small>
+  </div>
+			<div id="invalidLink" class="alert alert-warning" style="display:none;">
+				<strong>Invalid link!</strong> Please enter a valid link containing the ID of the file.
 			</div>
-			<button type="submit" class="btn btn-success">Submit</button>
-			<button type="reset" class="btn btn-danger">Reset</button>
+			<button type="submit" class="form-control btn btn-light" style="color:#0F9D58">Generate</button>
+<br><br>
+			<button type="reset" class="form-control btn btn-light" style="color:#FFCD40">Clear</button>
 			<br><br>
+<button style="display:none;color:#4285F4" id="copyButton" class="form-control btn btn-light" onclick="copyLink()">Copy to Clipboard</button>
 			<hr>
-			<label for="hotlink">Your direct link is</label>
-			<input class="form-control input-sm js-url-field" type="text" onclick="select()" id="hotlink"/><br>
-			<div id="validLink" class="alert alert-success" style="display:none">
+
+			<label for="hotlink">Your direct link is given below</label>
+			<input class="form-control editable input-sm js-url-field" type="text" onclick="select()"  id="hotlink"/><br>
+			<div id="validLink" class="alert alert-success" style="display:none;">
 				<strong>Success!</strong> Copied link to clipboard
 			</div>
-			<button style="display:none;" id="copyButton" class="btn btn-info" onclick="copyLink()">Copy to Clipboard</button>
 			<hr>
-			</div>
+     </div>
 		</form>
 	</div>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -38,6 +48,7 @@
 	document.getElementById("link").select();
 	function getID()
 	{
+$("#validLink").fadeOut(500);
 		try
 		{
 			id=document.getElementById("link").value.match(/[?&]id=([^&/\s]+)/);
