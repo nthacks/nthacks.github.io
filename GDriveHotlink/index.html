@@ -9,7 +9,7 @@
 			<div class="form-group">
 			<hr>
 			<label for="link">Enter your Google Drive share link here</label>
-			<input class="form-control" type="text" id="link" onclick="select()" onchange="getID()"/>
+			<input class="form-control input-sm js-url-field" type="text" id="link" onclick="select()" onchange="getID()"/>
 			<br>
 			<div id="invalidLink" class="alert alert-warning" style="display:none">
 				<strong>Invalid link!</strong> Please enter a valid link containing id
@@ -19,7 +19,7 @@
 			<br><br>
 			<hr>
 			<label for="hotlink">Your direct link is</label>
-			<input class="form-control" type="text" onclick="select()" id="hotlink"/><br>
+			<input class="form-control input-sm js-url-field" type="text" onclick="select()" id="hotlink"/><br>
 			<div id="validLink" class="alert alert-success" style="display:none">
 				<strong>Success!</strong> Copied link to clipboard
 			</div>
