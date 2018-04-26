@@ -37,7 +37,12 @@
 	{
 		try
 		{
-			id=document.getElementById("link").value.match(/[?&]id=([^&/\s]+)/)[1];
+			id=document.getElementById("link").value.match(/[?&]id=([^&/\s]+)/);
+			if (id==null)
+			{
+				id=document.getElementById("link").value.match(/\/d\/([^&/\s]+)/);
+			}
+			id=id[1];
 			$("#invalidLink").fadeOut(500);
 			//document.getElementById("invalidLink").style.display="none";
 			document.getElementById("hotlink").value="https://drive.google.com/uc?export=download&id="+id;
