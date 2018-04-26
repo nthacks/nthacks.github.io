@@ -1,0 +1,11 @@
+--2018-04-26 17:17:43--  https://ssl.gstatic.com/docs/doclist/images/infinite_arrow_favicon_5.ico
+Resolving ssl.gstatic.com (ssl.gstatic.com)... 74.125.130.94, 2404:6800:4003:c04::5e
+Connecting to ssl.gstatic.com (ssl.gstatic.com)|74.125.130.94|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [image/x-icon]
+Saving to: ‘infinite_arrow_favicon_5.ico’
+
+     0K .....                                                  1.71M=0.003s
+
+2018-04-26 17:17:43 (1.71 MB/s) - ‘infinite_arrow_favicon_5.ico’ saved [5430]
+
