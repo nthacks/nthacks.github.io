@@ -38,8 +38,12 @@
 					<input class="form-control input-sm js-url-field" type="text" id="link" onclick="select()" onchange="getID()"/>
 					<br>
 					<div class="alert alert-light alert-dismissible fade show">
-						<button type="button" class="close" data-dismiss="alert">&times;</button><small>
-						Make sure your files are shared with the option<br><strong>Public: Anyone with the link can view</strong></small>
+						<button type="button" class="close" data-dismiss="alert">&times;</button>
+						<small>
+							Make sure your files are shared with the option<br>
+							<strong>Public: Anyone with the link can view</strong><br>
+							Note that files larger than 1GB still require additional confirmation to download.
+						</small>
 					</div>
 					<div id="invalidLink" class="alert alert-warning" style="display:none;">
 						<strong>Invalid link!</strong> Please enter a valid link containing the ID of the file.
@@ -54,7 +58,7 @@
 					<label for="hotlink">Your direct link is given below</label>
 					<input class="form-control editable input-sm js-url-field" type="text" onclick="select()"  id="hotlink"/><br>
 					<div id="validLink" class="alert alert-success" style="display:none;">
-						<strong>Success!</strong> Copied link to clipboard
+						<strong>Success!</strong> Copied link to clipboard.
 					</div>
 					<hr>
 				</div>
@@ -79,26 +83,32 @@
 					$("#invalidLink").fadeOut(500);
 					//document.getElementById("invalidLink").style.display="none";
 					document.getElementById("hotlink").value="https://drive.google.com/uc?export=download&id="+id;
-				document.getElementById("hotlink").select();
-				$("#copyButton").fadeIn();
-				document.execCommand("Copy");
-				$("#validLink").fadeIn(500);
-				//document.getElementById("validLink").style.display="block";
-				}
+					document.getElementById("hotlink").select();
+					$("#copyButton").fadeIn();
+					document.execCommand("Copy");
+					$("#validLink").fadeIn(500);
+					scrollToElement("hotlink");
 				catch(e)
 				{
-				console.log(e);
-				$("#invalidLink").fadeIn(500);
+					console.log(e);
+					$("#invalidLink").fadeIn(500);
 				//document.getElementById("invalidLink").style.display="block";
 				}
-				}
-				function copyLink()
-				{
+			}
+			function copyLink()
+			{
 				document.getElementById("hotlink").select();
 				document.execCommand("Copy");
 				$("#validLink").fadeIn(500);
 				//document.getElementById("validLink").style.display="block";
-				}
+			}
+			function scrollToElement(id,duration=2000)
+			{
+				$('html, body').animate({
+							scrollTop: $(id).offset().top
+						}, duration);
+				});
+			}
 		</script>
 	</body>
 </html>		
