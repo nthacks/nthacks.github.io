@@ -1,4 +1,4 @@
-var CACHE='pwabuilder-precache';var precacheFiles=['/','/index.html','/LinkDrive/','/LinkDrive/index.html',];self.addEventListener('install',function(evt)
+var CACHE='pwabuilder-precache';var precacheFiles=['/','/index.html','/LinkDrive/','/LinkDrive/index.html'];self.addEventListener('install',function(evt)
 {if(e.request.cache==='only-if-cached'&&e.request.mode!=='same-origin')
 {return;}
 console.log('The service worker is being installed.');evt.waitUntil(precache().then(function()
