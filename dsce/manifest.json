@@ -4,7 +4,6 @@
 	"theme_color": "#ffffff",
 	"background_color": "#ffffff",
 	"display": "standalone",
-	"Scope": "/dsce/",
 	"start_url": "/dsce/index.html",
     "icons": [
         {
