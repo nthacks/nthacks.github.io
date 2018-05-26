@@ -29,76 +29,16 @@
 		<div class="container">
 			<br><br>
 			<div class="text-center">
-			<h1 class="display-4"><span style="color:#0F9D58">Link</span><span style="color:#4285F4">Drive</span><span style="color:#FFCD40">™</span></h2></div>
-			<h6 class="alert-light text-center"><small>A <strong>Direct Link</strong> Generator<br>for your shared Google Drive™ Files</small></h6>
-			<form action="javascript:void(0);" onsubmit="getID()" onreset="$('#invalidLink').fadeOut(500)">
-				<div class="form-group">
-					<hr>
-					<label for="link">Enter your file's share link here</label>
-					<input class="form-control input-sm js-url-field" type="text" id="link" onclick="select()" onchange="getID()"/>
-					<br>
-					<div class="alert alert-light alert-dismissible fade show">
-						<button type="button" class="close" data-dismiss="alert">&times;</button><small>
-						Make sure your files are shared with the option<br><strong>Public: Anyone with the link can view</strong></small>
-					</div>
-					<div id="invalidLink" class="alert alert-warning" style="display:none;">
-						<strong>Invalid link!</strong> Please enter a valid link containing the ID of the file.
-					</div>
-					<button type="submit" class="form-control btn btn-light" style="color:#0F9D58">Generate</button>
-					<br><br>
-					<button type="reset" class="form-control btn btn-light" style="color:#FFCD40">Clear</button>
-					<br><br>
-					<button style="display:none;color:#4285F4" id="copyButton" class="form-control btn btn-light" onclick="copyLink()">Copy to Clipboard</button>
-					<hr>
-					
-					<label for="hotlink">Your direct link is given below</label>
-					<input class="form-control editable input-sm js-url-field" type="text" onclick="select()"  id="hotlink"/><br>
-					<div id="validLink" class="alert alert-success" style="display:none;">
-						<strong>Success!</strong> Copied link to clipboard
-					</div>
-					<hr>
-				</div>
-			</form>
+			<a href="https://drive.google.com/drive/u/1/mobile/folders/0B9dn4ueXxSKMU0xvdkMxaVU1b0U" >
+				<h1 class="display-4"><span style="color:#0F9D58">DSCE</span><span style="color:#4285F4">Drive</span><span style="color:#FFCD40">™</span></h2></div>
+			</a>
 		</div>
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 		<script type="text/javascript">
-			document.getElementById("link").select();
-			function getID()
-			{
-				$("#validLink").fadeOut(500);
-				try
-				{
-					id=document.getElementById("link").value.match(/[?&]id=([^&/\s]+)/);
-					if (id==null)
-					{
-						id=document.getElementById("link").value.match(/\/d\/([^&/\s]+)/);
-					}
-					id=id[1];
-					$("#invalidLink").fadeOut(500);
-					//document.getElementById("invalidLink").style.display="none";
-					document.getElementById("hotlink").value="https://drive.google.com/uc?export=download&id="+id;
-				document.getElementById("hotlink").select();
-				$("#copyButton").fadeIn();
-				document.execCommand("Copy");
-				$("#validLink").fadeIn(500);
-				//document.getElementById("validLink").style.display="block";
-				}
-				catch(e)
-				{
-				console.log(e);
-				$("#invalidLink").fadeIn(500);
-				//document.getElementById("invalidLink").style.display="block";
-				}
-				}
-				function copyLink()
-				{
-				document.getElementById("hotlink").select();
-				document.execCommand("Copy");
-				$("#validLink").fadeIn(500);
-				//document.getElementById("validLink").style.display="block";
-				}
+			
+						
 		</script>
 	</body>
 </html>		

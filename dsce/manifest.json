@@ -1,10 +1,11 @@
 {
-	"name": "DSCE Drive",
-	"short_name": "DSCE Drive",
+	"name": "DSCE",
+	"short_name": "DSCE",
 	"theme_color": "#ffffff",
 	"background_color": "#ffffff",
 	"display": "standalone",
-	"start_url": "https://drive.google.com/drive/u/1/mobile/folders/0B9dn4ueXxSKMU0xvdkMxaVU1b0U",
+	"Scope": "/dsce/",
+	"start_url": "/dsce/index.html",
     "icons": [
         {
             "src": "/dsce/images/icons/android-chrome-36x36.png",
