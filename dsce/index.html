@@ -22,8 +22,11 @@
 		<meta name="msapplication-config" content="images/icons/browserconfig.xml">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
 		<link rel="manifest" href="manifest.json">	
-		<!--<script src="site.js"></script>-->
+		<!--
+		<script src="site.js"></script>
+		-->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="styles.css?4">
 	</head>
 	<body>
 		<div class="container">
@@ -32,13 +35,17 @@
 				<a href="/dsce" >
 					<h1 class="display-4"><span style="color:#0F9D58">DSCE</span><span style="color:#4285F4">Drive</span><span style="color:#FFCD40">™</span></h2>
 				</a>
-				
+			
 				<img style="display:none" id="ajaxloader" src="loader.gif"><br>
-				<hr>
-				<div style="display:none; word-wrap:break-word" id="viewcontainer">
+			</div>
+			<div>
+			<hr>
+				<div style="display:none; word-wrap:break-word; text-align:-webkit-center" id="viewcontainer">
 					<div id="folderview"></div>
 				</div>
 				<br>
+			</div>
+			<div class="text-center">
 				<a class="btn btn-info" href="https://drive.google.com/drive/u/1/mobile/folders/0B9dn4ueXxSKMU0xvdkMxaVU1b0U" >Goto drive folder</a>
 			</div>
 		</div>
@@ -71,10 +78,16 @@
 					body=/<body.*<\/body>/g.exec(content.content)[0]
 					body=body.replace(/<a href="https:\/\/drive.google.com\/drive\/folders\/([_-\d\w]+)" target="_blank">/g,"<a href='#$1'>")
 					body=body.replace(/target="_blank"/g,"")
+					body=body.replace(/<script.*<\/script>/g,"")
 					view=document.getElementById("folderview")
 					view.innerHTML=body
+					$(".flip-butter-container").remove()
 					$(".flip-entry-last-modified").remove()
 					$(".flip-list-header").remove()
+					$(".flip-entry-list-icon").remove()
+					var contentsEl = document.getElementById('flip-contents');
+					contentsEl.className = contentsEl.className.replace('flip-list-view', 'flip-grid-view');
+					$( "<hr>" ).insertAfter( ".flip-entry" );
 					cache[id]=view.cloneNode(true)
 				}
 				else
@@ -89,12 +102,12 @@
 			if(window.location.hash=='')
 				fetchfolder(homepage)
 			else
-				fetchfolder(window.location.hash.slice(1))
+				fetchfolder(window.location.hash.substring(1))
 
 			window.onhashchange = function() {
 				if(window.location.hash!='')
 				{
-					id=window.location.hash.slice(1)
+					id=window.location.hash.substring(1)
 					console.log("Going back from "+id);
 					fetchfolder(id)
 				}
