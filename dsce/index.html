@@ -82,6 +82,11 @@
 					body=body.replace(/https:\/\/drive.google.com\/file\/d\/([_-\d\w]+)\/view\?usp=drive_web/g,"https://drive.google.com/uc?export=download&id=$1")
 					body=body.replace(/target="_blank"/g,"")
 					body=body.replace(/<script.*<\/script>/g,"")
+					color=2
+					while(body.match(/icon-color-1 /)!=null){
+						body=body.replace(/icon-color-1 /,"icon-color-"+(color)+" ")
+						color=(color+1)%25
+					}
 					view=document.getElementById("folderview")
 					view.innerHTML=body
 					$(".flip-butter-container").remove()
