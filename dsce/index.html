@@ -76,18 +76,24 @@
 					const myGetsy = await getsy(url,{corsProxy:"https://agile-peak-76666.herokuapp.com/",iframe:false})
 					content=myGetsy
 					body=/<body.*<\/body>/g.exec(content.content)[0]
+					body=body.replace(/<body/g,"<div")
+					body=body.replace(/<\/body>/g,"</div>")
 					body=body.replace(/<a href="https:\/\/drive.google.com\/drive\/folders\/([_-\d\w]+)" target="_blank">/g,"<a href='#$1'>")
 					body=body.replace(/target="_blank"/g,"")
 					body=body.replace(/<script.*<\/script>/g,"")
+					for(i=1;i<=body.match(/<div aria-label="Folder" class="icon-color-1/g).length;i++)
+					{
+						body=body.replace(/<div aria-label="Folder" class="icon-color-1/,"<div aria-label=\"Folder\" class=\"icon-color-"+i)
+					}
 					view=document.getElementById("folderview")
 					view.innerHTML=body
 					$(".flip-butter-container").remove()
 					$(".flip-entry-last-modified").remove()
 					$(".flip-list-header").remove()
 					$(".flip-entry-list-icon").remove()
-					var contentsEl = document.getElementById('flip-contents')
-					contentsEl.className = contentsEl.className.replace('flip-list-view', 'flip-grid-view')
-        			$(".flip-entry").addClass("jumbotron")
+					var contentsEl = document.getElementById('flip-contents');
+					contentsEl.className = contentsEl.className.replace('flip-list-view', 'flip-grid-view');
+					$( "<hr>" ).insertAfter( ".flip-entry" );
 					cache[id]=view.cloneNode(true)
 				}
 				else
