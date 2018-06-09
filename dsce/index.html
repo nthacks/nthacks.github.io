@@ -85,9 +85,9 @@
 					$(".flip-entry-last-modified").remove()
 					$(".flip-list-header").remove()
 					$(".flip-entry-list-icon").remove()
-					var contentsEl = document.getElementById('flip-contents');
-					contentsEl.className = contentsEl.className.replace('flip-list-view', 'flip-grid-view');
-					$( "<hr>" ).insertAfter( ".flip-entry" );
+					var contentsEl = document.getElementById('flip-contents')
+					contentsEl.className = contentsEl.className.replace('flip-list-view', 'flip-grid-view')
+        			$(".flip-entry").addClass("jumbotron")
 					cache[id]=view.cloneNode(true)
 				}
 				else
