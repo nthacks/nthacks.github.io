@@ -79,6 +79,7 @@
 					body=body.replace(/<body/g,"<div")
 					body=body.replace(/<\/body>/g,"</div>")
 					body=body.replace(/<a href="https:\/\/drive.google.com\/drive\/folders\/([_-\d\w]+)" target="_blank">/g,"<a href='#$1'>")
+					body=body.replace(/https:\/\/drive.google.com\/file\/d\/([_-\d\w]+)\/view\?usp=drive_web/g,"https://drive.google.com/uc?export=download&id=$1")
 					body=body.replace(/target="_blank"/g,"")
 					body=body.replace(/<script.*<\/script>/g,"")
 					view=document.getElementById("folderview")
