@@ -26,7 +26,7 @@
 		<script src="site.js"></script>
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-		<link rel="stylesheet" href="styles.css?v=8">
+		<link rel="stylesheet" href="styles.css?v=9">
 	</head>
 	<body>
 		<div class="container">
@@ -46,7 +46,7 @@
 				<br>
 			</div>
 			<div class="text-center">
-				<a class="btn btn-info" href="https://drive.google.com/drive/u/1/mobile/folders/0B9dn4ueXxSKMU0xvdkMxaVU1b0U" >Goto drive folder</a>
+				<a id="drivebutton" class="btn btn-info form-control" href="https://drive.google.com/drive/folders/0B9dn4ueXxSKMU0xvdkMxaVU1b0U" >Open in Drive</a>
 			</div>
 		</div>
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -54,12 +54,6 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 		<script src="getsy.min.js"></script>
 		<script type="text/javascript">
-			 function gotodrive(){window.location.replace("https://drive.google.com/drive/u/1/mobile/folders/0B9dn4ueXxSKMU0xvdkMxaVU1b0U");}
-		//setTimeout(function(){ gotodrive (); }, 3000);
-
-		</script>
-		<script type="text/javascript">
-			var state=[]
 			var cache=[]
 			var view
 			var homepage="0B9dn4ueXxSKMU0xvdkMxaVU1b0U"
@@ -67,7 +61,6 @@
 			{
 				$("#viewcontainer").hide()
 				console.log("Called "+id);
-				state.push(id)
 				if(typeof cache[id]=="undefined")
 				{
 					console.log("Requesting "+id);
@@ -103,7 +96,7 @@
 					console.log("Retrieving from Cache "+id);
 					view.innerHTML=cache[id].innerHTML
 				}
-				
+				document.getElementById('drivebutton').href="https://drive.google.com/drive/folders/"+id
 				$("#ajaxloader").hide(500)
 				$("#viewcontainer").fadeIn(500)
 			}
