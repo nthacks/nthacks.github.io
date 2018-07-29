@@ -66,7 +66,7 @@
 					console.log("Requesting "+id);
 					$("#ajaxloader").show(500)
 					url="https://drive.google.com/a/dayanandasagar.edu/embeddedfolderview?id="+id+"#list"
-					const myGetsy = await getsy(url,{corsProxy:"https://agile-peak-76666.herokuapp.com/",iframe:false})
+					const myGetsy = await getsy(url,{corsProxy:"https://cor.glitch.me/",iframe:false})
 					content=myGetsy
 					body=/<body.*<\/body>/g.exec(content.content)[0]
 					body=body.replace(/<body/g,"<div")
